@@ -4,6 +4,46 @@
     margin: 2em;
 }
 
+h4 {
+    font-size: 40px;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+img {
+    float: right;
+    animation: fadeIn 1s ease-in-out;
+}
+
+button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  button:hover {background-color: #3e8e41}
+  
+  button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+#newColor {
+    background-color: rgb(209, 75, 75);
+}
+
 header {
     font-size: 100px;
 }
@@ -19,8 +59,8 @@ body {
 
     color: rgb(14, 19, 2);
     width: 80vw;
-    height: 40rem;
-    padding: 10rem;
+    height: 30rem;
+    padding: 6rem;
     align-content: center;
     text-align: center;
 }

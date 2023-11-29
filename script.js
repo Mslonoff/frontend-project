@@ -16,7 +16,7 @@ happyChuckNorris.src = 'https://pbs.twimg.com/media/FVJCrfgUUAACJ2-?format=jpg&n
 
 let imageContainer = document.getElementById('imageContainer');
 
-let doYouLikeJokesMessage = document.createElement('h4');
+let doYouLikeJokesMessage = document.createElement('h3');
 doYouLikeJokesMessage.innerText = 'Do you like jokes?';
 
 let jokeButton = document.createElement('button');
@@ -75,11 +75,22 @@ function secondTwoButtons() {
 }
 
 secondTwoButtons()
+let totalJokesTold = 0;
+let eventThreeHandled = false;
+let numberOfJokesIcon = document.createElement('div');
+container.appendChild(numberOfJokesIcon);
+numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far'
 
+function jokesIconIncrease() {
 jokeButton.addEventListener('click', function () {
   // Make an asynchronous request to get a Chuck Norris joke
   $.get('https://api.chucknorris.io/jokes/random', function (data) {
     // Update the text content of the 'jokeDisplayed' element with the received joke
     jokeDisplayed.innerText = data.value;
+    
   });
+  
 });
+totalJokesTold += 1;
+}
+jokesIconIncrease();
