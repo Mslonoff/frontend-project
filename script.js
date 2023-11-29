@@ -29,28 +29,52 @@ let noButton2 = document.createElement('button');
 noButton2.innerText = 'NO';
 
 let leaveMessage = document.createElement('h4');
-leaveMessage.innerText = 'You should probably leave this webpage.';
+leaveMessage.innerText = 'Leave this webpage.';
 
-yesButton.addEventListener('click', function () {
-  imageContainer.appendChild(happyChuckNorris);
-  imageContainer.appendChild(doYouLikeJokesMessage);
-  imageContainer.appendChild(yesButton2);
-  imageContainer.appendChild(noButton2);
-})
+let leaveMessage2 = document.createElement('h4');
+leaveMessage2.innerText = 'You should probably leave this webpage.';
 
-yesButton2.addEventListener('click', function () {
-  imageContainer.appendChild(jokeButton);
-})
+let eventOneHandled = false;
 
-noButton.addEventListener('click', function () {
-  imageContainer.appendChild(angryChuckNorris);
-})
+function firstTwoButtons () {
+    yesButton.addEventListener('click', function () {
+      if (!eventOneHandled) {
+        imageContainer.appendChild(happyChuckNorris);
+        imageContainer.appendChild(doYouLikeJokesMessage);
+        imageContainer.appendChild(yesButton2);
+        imageContainer.appendChild(noButton2);
+        eventOneHandled = true;
+      }
+    }); 
+  noButton.addEventListener('click', function () {
+    if (!eventOneHandled) {
+    imageContainer.appendChild(angryChuckNorris);
+    imageContainer.appendChild(leaveMessage);
+    eventOneHandled = true;
+    }
+  }); 
+}
 
-noButton2.addEventListener('click', function () {
-  imageContainer.appendChild(disappointedChuck)
-  imageContainer.appendChild(leaveMessage);
-})
+firstTwoButtons();
 
+let eventTwoHandled = false;
+function secondTwoButtons() {
+  yesButton2.addEventListener('click', function () {
+    if (!eventTwoHandled) {
+      imageContainer.appendChild(jokeButton);
+      eventTwoHandled = true;
+    }
+  });
+  noButton2.addEventListener('click', function () {
+    if (!eventTwoHandled) {
+      imageContainer.appendChild(disappointedChuck)
+      imageContainer.appendChild(leaveMessage2);
+      eventTwoHandled = true;
+    }
+  });
+}
+
+secondTwoButtons()
 
 jokeButton.addEventListener('click', function () {
   // Make an asynchronous request to get a Chuck Norris joke

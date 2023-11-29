@@ -1,7 +1,31 @@
 .happyChuckNorris {
     max-width: 20em;
+    transition: opacity 5s ease-in-out;
+    margin: 2em;
+}
+
+header {
+    font-size: 100px;
 }
 
 .disappointedChuck {
     max-width: 20em;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.562);
+}
+#container {
+
+    color: rgb(14, 19, 2);
+    width: 80vw;
+    height: 40rem;
+    padding: 10rem;
+    align-content: center;
+    text-align: center;
+}
+
+#jokeDisplayed {
+    font-size: larger;
+    font-weight: 800;
 }
