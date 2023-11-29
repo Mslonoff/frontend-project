@@ -1,5 +1,56 @@
-var jokeButton = document.getElementById('jokeButton');
-var jokeDisplayed = document.getElementById('jokeDisplayed');
+let disappointedChuck = document.createElement('img');
+disappointedChuck.src = 'https://www.usatoday.com/gcdn/presto/2020/03/10/USAT/14860a5d-3ae8-4049-b4b5-5a02e14c4721-Chuck_Norris_01.JPG?crop=1933,1087,x1,y153&width=1933&height=1087&format=pjpg&auto=webp';
+disappointedChuck.className = 'disappointedChuck';
+
+let jokeDisplayed = document.getElementById('jokeDisplayed');
+let yesButton = document.getElementById('yesButton');
+let noButton = document.getElementById('noButton');
+
+let angryChuckNorris = document.createElement('img');
+angryChuckNorris.className = 'angryChuckNorris';
+angryChuckNorris.src = 'https://media.tenor.com/NyZD_Iu9g4kAAAAC/chuck-norris-punch.gif';
+
+let happyChuckNorris = document.createElement('img');
+happyChuckNorris.className = 'happyChuckNorris';
+happyChuckNorris.src = 'https://pbs.twimg.com/media/FVJCrfgUUAACJ2-?format=jpg&name=4096x4096';
+
+let imageContainer = document.getElementById('imageContainer');
+
+let doYouLikeJokesMessage = document.createElement('h4');
+doYouLikeJokesMessage.innerText = 'Do you like jokes?';
+
+let jokeButton = document.createElement('button');
+jokeButton.innerText = 'Click me to hear a Joke!';
+
+let yesButton2 = document.createElement('button');
+yesButton2.innerText = 'YES';
+
+let noButton2 = document.createElement('button');
+noButton2.innerText = 'NO';
+
+let leaveMessage = document.createElement('h4');
+leaveMessage.innerText = 'You should probably leave this webpage.';
+
+yesButton.addEventListener('click', function () {
+  imageContainer.appendChild(happyChuckNorris);
+  imageContainer.appendChild(doYouLikeJokesMessage);
+  imageContainer.appendChild(yesButton2);
+  imageContainer.appendChild(noButton2);
+})
+
+yesButton2.addEventListener('click', function () {
+  imageContainer.appendChild(jokeButton);
+})
+
+noButton.addEventListener('click', function () {
+  imageContainer.appendChild(angryChuckNorris);
+})
+
+noButton2.addEventListener('click', function () {
+  imageContainer.appendChild(disappointedChuck)
+  imageContainer.appendChild(leaveMessage);
+})
+
 
 jokeButton.addEventListener('click', function () {
   // Make an asynchronous request to get a Chuck Norris joke
