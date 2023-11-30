@@ -2,8 +2,6 @@ let disappointedChuck = document.createElement('img');
 disappointedChuck.src = 'https://www.usatoday.com/gcdn/presto/2020/03/10/USAT/14860a5d-3ae8-4049-b4b5-5a02e14c4721-Chuck_Norris_01.JPG?crop=1933,1087,x1,y153&width=1933&height=1087&format=pjpg&auto=webp';
 disappointedChuck.className = 'disappointedChuck';
 
-let jokeDisplayed = document.getElementById('jokeDisplayed');
-
 let yesButton = document.getElementById('yesButton');
 let noButton = document.getElementById('noButton');
 
@@ -19,9 +17,6 @@ let imageContainer = document.getElementById('imageContainer');
 
 let doYouLikeJokesMessage = document.createElement('h3');
 doYouLikeJokesMessage.innerText = 'Do you like jokes?';
-
-let jokeButton = document.createElement('button');
-jokeButton.innerText = 'Click me to hear a Joke!';
 
 let yesButton2 = document.createElement('button');
 yesButton2.innerText = 'YES';
@@ -76,9 +71,11 @@ function secondTwoButtons() {
 }
 
 secondTwoButtons()
-let totalJokesTold = 0;
-let eventThreeHandled = false;
+let totalJokesTold = 1;
+let jokeDisplayed = document.getElementById('jokeDisplayed');
 let numberOfJokesIcon = document.createElement('div');
+let jokeButton = document.createElement('button');
+jokeButton.innerText = 'Click me to hear a Joke!';
 
 function jokesIconIncrease() {
 jokeButton.addEventListener('click', function () {
@@ -93,3 +90,25 @@ jokeButton.addEventListener('click', function () {
 });
 }
 jokesIconIncrease();
+
+let totalDogsShown = 1;
+let totalDogsShownIcon = document.createElement('div');
+let dogButton = document.createElement('button');
+dogButton.innerText = 'Click me to see a dog instead of hear a joke!';
+container.appendChild(dogButton);
+
+let newDogImage = document.createElement('img');
+function dogImageIncrease() {
+  dogButton.addEventListener('click', function () {
+    $.get('https://dog.ceo/api/breeds/image/random', function (data) {
+      totalDogsShownIcon.innerText = totalDogsShown + ' dogs seen so far';
+      container.appendChild(totalDogsShownIcon);
+      newDogImage.src = data.message;
+      container.appendChild(newDogImage);
+      totalDogsShown += 1;
+      dogDisplayed = true;
+    });
+  });
+}
+
+dogImageIncrease();

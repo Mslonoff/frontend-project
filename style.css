@@ -46,11 +46,6 @@ button {
     transform: translateY(4px);
   }
 
-#newColor {
-    background-color: rgb(209, 75, 75);
-    height: 10%;
-}
-
 header {
     font-size: 100px;
 }
@@ -63,7 +58,8 @@ body {
     background-color: rgba(0, 0, 0, 0.562);
 }
 #container {
-
+    display: flex;
+    border: #04AA6D;
     color: rgb(14, 19, 2);
     width: 80vw;
     height: 30rem;
