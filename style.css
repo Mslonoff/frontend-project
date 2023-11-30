@@ -3,9 +3,15 @@
     transition: opacity 5s ease-in-out;
     margin: 2em;
 }
+#title {
+    background-color: #04aa6d45;
+}
 
 h4 {
     font-size: 40px;
+}
+#jokeDisplayed {
+    background-color: rgba(0, 255, 255, 0.498);
 }
 
 @keyframes fadeIn {
@@ -42,6 +48,7 @@ button {
 
 #newColor {
     background-color: rgb(209, 75, 75);
+    height: 10%;
 }
 
 header {
@@ -60,7 +67,7 @@ body {
     color: rgb(14, 19, 2);
     width: 80vw;
     height: 30rem;
-    padding: 6rem;
+    padding: 2rem;
     align-content: center;
     text-align: center;
 }

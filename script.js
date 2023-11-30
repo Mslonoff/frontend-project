@@ -3,6 +3,7 @@ disappointedChuck.src = 'https://www.usatoday.com/gcdn/presto/2020/03/10/USAT/14
 disappointedChuck.className = 'disappointedChuck';
 
 let jokeDisplayed = document.getElementById('jokeDisplayed');
+
 let yesButton = document.getElementById('yesButton');
 let noButton = document.getElementById('noButton');
 
@@ -78,19 +79,17 @@ secondTwoButtons()
 let totalJokesTold = 0;
 let eventThreeHandled = false;
 let numberOfJokesIcon = document.createElement('div');
-container.appendChild(numberOfJokesIcon);
-numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far'
 
 function jokesIconIncrease() {
 jokeButton.addEventListener('click', function () {
   // Make an asynchronous request to get a Chuck Norris joke
   $.get('https://api.chucknorris.io/jokes/random', function (data) {
     // Update the text content of the 'jokeDisplayed' element with the received joke
+    numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far';
+    container.appendChild(numberOfJokesIcon);
     jokeDisplayed.innerText = data.value;
-    
+    totalJokesTold += 1;
   });
-  
 });
-totalJokesTold += 1;
 }
 jokesIconIncrease();
