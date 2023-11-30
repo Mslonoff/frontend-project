@@ -3,13 +3,25 @@
     transition: opacity 5s ease-in-out;
     margin: 2em;
 }
+
 #title {
     background-color: #04aa6d45;
+}
+
+#dogImage {
+    max-width: 20rem;
+    max-height: 20rem;
+}
+
+#imageContainer {
+    flex: column;
+    justify-content: space-between;
 }
 
 h4 {
     font-size: 40px;
 }
+
 #jokeDisplayed {
     background-color: rgba(0, 255, 255, 0.498);
 }
@@ -24,7 +36,18 @@ img {
     animation: fadeIn 1s ease-in-out;
 }
 
+#dogButton {
+    width: fit-content;
+    overflow: hidden;
+}
+
+#header {
+    font-size: 5rem;
+}
+
 button {
+    border: 4px solid rgb(0, 223, 216);
+    max-height: 100px;
     display: inline-block;
     padding: 15px 25px;
     font-size: 24px;
@@ -32,9 +55,8 @@ button {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
+    color: #ffffff;
     background-color: #04AA6D;
-    border: none;
     border-radius: 15px;
   }
   
@@ -45,9 +67,25 @@ button {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  #id {
+    display: flex;
+    flex: column;
+    justify-content: space-between;
+  }
 
 header {
     font-size: 100px;
+}
+
+#ChuckNorrisQuestion {
+    flex: column;
+    justify-content: space-between;
+}
+
+#musicAndJokes {
+    display: flex;
+    flex: column;
+    justify-content: space-between;
 }
 
 .disappointedChuck {
@@ -59,6 +97,8 @@ body {
 }
 #container {
     display: flex;
+    flex: column;
+    justify-content: space-between;
     border: #04AA6D;
     color: rgb(14, 19, 2);
     width: 80vw;
@@ -69,6 +109,9 @@ body {
 }
 
 #jokeDisplayed {
+    display: flex;
+    flex: column;
+    justify-content: space-between;
     font-size: larger;
     font-weight: 800;
 }

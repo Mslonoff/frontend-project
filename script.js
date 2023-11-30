@@ -2,6 +2,8 @@ let disappointedChuck = document.createElement('img');
 disappointedChuck.src = 'https://www.usatoday.com/gcdn/presto/2020/03/10/USAT/14860a5d-3ae8-4049-b4b5-5a02e14c4721-Chuck_Norris_01.JPG?crop=1933,1087,x1,y153&width=1933&height=1087&format=pjpg&auto=webp';
 disappointedChuck.className = 'disappointedChuck';
 
+let chuckNorrisQuestion = document.getElementById('chuckNorrisQuestion');
+
 let yesButton = document.getElementById('yesButton');
 let noButton = document.getElementById('noButton');
 
@@ -49,6 +51,7 @@ function firstTwoButtons () {
     eventOneHandled = true;
     }
   }); 
+
 }
 
 firstTwoButtons();
@@ -65,6 +68,29 @@ function secondTwoButtons() {
     if (!eventTwoHandled) {
       imageContainer.appendChild(disappointedChuck)
       imageContainer.appendChild(leaveMessage2);
+      let totalDogsShown = 1;
+let totalDogsShownIcon = document.createElement('div');
+let dogButton = document.createElement('button');
+dogButton.id = 'dogButton';
+dogButton.innerText = 'Click me to see a dog instead of hear a joke!';
+dogStuff.appendChild(dogButton);
+
+let newDogImage = document.createElement('img');
+newDogImage.id = 'dogImage';
+function dogImageIncrease() {
+  dogButton.addEventListener('click', function () {
+    $.get('https://dog.ceo/api/breeds/image/random', function (data) {
+      totalDogsShownIcon.innerText = totalDogsShown + ' dogs seen so far';
+      dogStuff.appendChild(totalDogsShownIcon);
+      newDogImage.src = data.message;
+      dogStuff.appendChild(newDogImage);
+      totalDogsShown += 1;
+      dogDisplayed = true;
+    });
+  });
+}
+
+dogImageIncrease();
       eventTwoHandled = true;
     }
   });
@@ -74,7 +100,9 @@ secondTwoButtons()
 let totalJokesTold = 1;
 let jokeDisplayed = document.getElementById('jokeDisplayed');
 let numberOfJokesIcon = document.createElement('div');
+numberOfJokesIcon.id = 'numberJokes';
 let jokeButton = document.createElement('button');
+jokeButton.id = 'jokeButton';
 jokeButton.innerText = 'Click me to hear a Joke!';
 
 function jokesIconIncrease() {
@@ -83,7 +111,7 @@ jokeButton.addEventListener('click', function () {
   $.get('https://api.chucknorris.io/jokes/random', function (data) {
     // Update the text content of the 'jokeDisplayed' element with the received joke
     numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far';
-    container.appendChild(numberOfJokesIcon);
+    chuckNorrisQuestion.appendChild(numberOfJokesIcon);
     jokeDisplayed.innerText = data.value;
     totalJokesTold += 1;
   });
@@ -91,24 +119,3 @@ jokeButton.addEventListener('click', function () {
 }
 jokesIconIncrease();
 
-let totalDogsShown = 1;
-let totalDogsShownIcon = document.createElement('div');
-let dogButton = document.createElement('button');
-dogButton.innerText = 'Click me to see a dog instead of hear a joke!';
-container.appendChild(dogButton);
-
-let newDogImage = document.createElement('img');
-function dogImageIncrease() {
-  dogButton.addEventListener('click', function () {
-    $.get('https://dog.ceo/api/breeds/image/random', function (data) {
-      totalDogsShownIcon.innerText = totalDogsShown + ' dogs seen so far';
-      container.appendChild(totalDogsShownIcon);
-      newDogImage.src = data.message;
-      container.appendChild(newDogImage);
-      totalDogsShown += 1;
-      dogDisplayed = true;
-    });
-  });
-}
-
-dogImageIncrease();
