@@ -74,18 +74,28 @@ let dogButton = document.createElement('button');
 dogButton.id = 'dogButton';
 dogButton.innerText = 'Click me to see a dog instead of hear a joke!';
 dogStuff.appendChild(dogButton);
-
+let firstDogSeen = true;
 let newDogImage = document.createElement('img');
 newDogImage.id = 'dogImage';
 function dogImageIncrease() {
   dogButton.addEventListener('click', function () {
     $.get('https://dog.ceo/api/breeds/image/random', function (data) {
-      totalDogsShownIcon.innerText = totalDogsShown + ' dogs seen so far';
+      if (firstDogSeen) {
+      totalDogsShownIcon.innerText = totalDogsShown + ' dog seen so far';
       dogStuff.appendChild(totalDogsShownIcon);
       newDogImage.src = data.message;
       dogStuff.appendChild(newDogImage);
       totalDogsShown += 1;
       dogDisplayed = true;
+      firstDogSeen = false;
+      } else {
+        totalDogsShownIcon.innerText = totalDogsShown + ' dogs seen so far';
+        dogStuff.appendChild(totalDogsShownIcon);
+        newDogImage.src = data.message;
+        dogStuff.appendChild(newDogImage);
+        totalDogsShown += 1;
+        dogDisplayed = true;
+      }
     });
   });
 }
@@ -105,15 +115,24 @@ let jokeButton = document.createElement('button');
 jokeButton.id = 'jokeButton';
 jokeButton.innerText = 'Click me to hear a Joke!';
 
+let firstJokeSeen = true;
 function jokesIconIncrease() {
 jokeButton.addEventListener('click', function () {
   // Make an asynchronous request to get a Chuck Norris joke
   $.get('https://api.chucknorris.io/jokes/random', function (data) {
+    if (firstJokeSeen) {
     // Update the text content of the 'jokeDisplayed' element with the received joke
-    numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far';
+    numberOfJokesIcon.innerText = totalJokesTold + ' joke revealed so far';
     chuckNorrisQuestion.appendChild(numberOfJokesIcon);
     jokeDisplayed.innerText = data.value;
     totalJokesTold += 1;
+    firstJokeSeen = false;
+    } else {
+      numberOfJokesIcon.innerText = totalJokesTold + ' jokes revealed so far';
+      chuckNorrisQuestion.appendChild(numberOfJokesIcon);
+      jokeDisplayed.innerText = data.value;
+      totalJokesTold += 1;
+    }
   });
 });
 }
